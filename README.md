@@ -39,7 +39,7 @@ Este repositorio está diseñado construido para realizar un rápido despliegue 
 ### Instrucciones para instalación y puesta en marcha
 1. Clonar el repositorio
    ```bash
-   git clone https://github.com/pablofontaine/Standard-Django-template.git
+   https://github.com/pablofontaine/standard_django_template.git
    ```
 2. Elegir el nombre del proyecto
    - **No debe contener espacios vacios:**

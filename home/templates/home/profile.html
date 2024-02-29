@@ -1,0 +1,70 @@
+{% extends "global_template.html" %}
+
+{% block page_title %}
+Mi cuenta
+{% endblock page_title %}
+
+{% block head_aditional_css_or_scripts %}
+<style>
+    .form-global {
+      max-width: 450px;
+    }
+</style>
+{% endblock head_aditional_css_or_scripts %}
+
+{% block main_icon %}
+<i class="bi bi-gear h1 text-danger"></i>
+{% endblock main_icon %}
+
+{% block main_content_title %}
+Información de mi cuenta
+{% endblock main_content_title %}
+
+{% block main_content_subtitle %}
+Actualizar, ver, modificar o eliminar mi cuenta
+{% endblock main_content_subtitle %}
+
+{% block main_content_data %}
+<div class="d-flex align-items-center justify-content-center">
+    <div class="form-global">
+        <fieldset disabled>
+            <div class="mb-3">
+                <label for="disabledTextInputFirstLastName" class="form-label">Nombres y apellidos</label>
+                <input type="text" id="disabledTextInputFirstLastName" class="form-control" placeholder="{{ user.first_name }}, {{ user.last_name }}">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputUsername" class="form-label">Usuario</label>
+                <input type="text" id="disabledTextInputUsername" class="form-control" placeholder="{{ user.username }}">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputEmail" class="form-label">Correo electrónico</label>
+                <input type="text" id="disabledTextInputEmail" class="form-control" placeholder="{{ user.email }}">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputIdentification" class="form-label">Documento Nacional de Identidad</label>
+                <input type="text" id="disabledTextInputIdentification" class="form-control" placeholder="Aún no disponible">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputIdentification2" class="form-label">CUIL/CUIT</label>
+                <input type="text" id="disabledTextInputIdentification2" class="form-control" placeholder="Aún no disponible">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputCountryCity" class="form-label">Pais y ciudad</label>
+                <input type="text" id="disabledTextInputCountryCity" class="form-control" placeholder="Aún no disponible">
+            </div>
+            <div class="mb-3">
+                <label for="disabledTextInputAdress" class="form-label">Dirección</label>
+                <input type="text" id="disabledTextInputAdress" class="form-control" placeholder="Aún no disponible">
+            </div>
+        </fieldset>
+        <div class="text-center py-3">
+            <p class="fw-light">Para proteger tanto tu seguridad como la de otros usuarios, no permitimos cambios directos en tus datos después del registro. Esto ayuda a garantizar que la información sea precisa y confiable para todos.</p>
+            <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Solicitar cambio de datos únicos</a>
+        <div class="btn-group-vertical w-100 py-4" role="group" aria-label="Vertical button group">
+            <a href="{% url "home:password_change" %}" type="button" class="btn btn-outline-secondary">Cambiar contraseña</a>
+            <a href="#" type="button" class="btn btn-danger">Eliminar mi cuenta</a>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content_data %}

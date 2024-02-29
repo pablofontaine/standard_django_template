@@ -1,0 +1,29 @@
+{% extends "base_forms_template.html" %}
+
+{% block title %}
+Iniciar sesión
+{% endblock title %}
+
+{% comment %} {% block form_icon %}
+{% endblock form_icon %} {% endcomment %}
+
+{% block form_title %}
+Iniciar sesión
+{% endblock form_title %}
+
+{% block form_subtitle %}
+Bienvenid<small>@</small> de nuevo
+{% endblock form_subtitle %}
+
+{% block form_main_button_title %}
+Iniciar sesión
+{% endblock form_main_button_title %}
+
+{% block form_secondary_buttom %}
+<a class="btn btn-light" href="{% url "home:singup" %}" role="button">Registrar nueva cuenta</a>
+{% endblock form_secondary_buttom %}
+
+{% block aditional_info %}
+<p class="mb-0 text-secondary"><small>Si olvidaste tu contraseña</small></p>
+<small><a href="{% url "home:password_reset" %}" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Haz clic aquí</a></small>
+{% endblock aditional_info %}

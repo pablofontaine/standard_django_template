@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>
+        {% block title %}
+        Título de la pagína
+        {% endblock title %}
+        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Style and icons -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+        {% block aditional_head %}
+        <style>
+            .form-global {
+              max-width: 450px;
+              padding: 1rem;
+            }
+        </style>
+        {% endblock aditional_head %}
+    </head>
+
+    <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+        {# Header for navs #}
+        <header>
+            {% include 'global_navbar.html' %}
+            {% block secondary_navbar %}
+            {% endblock secondary_navbar %}
+        </header>
+        {# Main section #}
+        {% block main_section %}
+        <main class="form-global w-100 m-auto">
+            <div class="text-center mb-4 mt-4">
+                <p class="fs-1 mb-0">
+                    {% block form_icon %}
+                    <i class="bi bi-lock text-danger"></i>
+                    {% endblock form_icon %}
+                </p>
+                <h1 class="mb-0">
+                    {% block form_title %}
+                    Titulo
+                    {% endblock form_title %}
+                </h1>
+                <p class="lead mb-0 text-secondary">
+                    {% block form_subtitle %}
+                    Subtitulo del formulario
+                    {% endblock form_subtitle %}
+                </p>
+            </div>
+            {% block form_global %}
+            <div class="container-fluid p-4 bg-white shadow-sm">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <!-- {% for field in form %}
+                    <div class="mt-2">
+                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        <input type="{{ field.widget_type }}" name="{{ field.name }}" id="{{ field.id_for_label }}" maxlength="{{ field.field.max_length }}" {% if field.required == true %}required{% endif %} class="form-control mb-2" />
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <p class="text-danger mb-0"><small>{{ error }}</small></p>
+                            {% endfor %}
+                        {% endif %}
+                        <span class="form-text">{{ field.help_text }}</span>
+                    </div>
+                    {% endfor %} -->
+                    <div class="btn-group-vertical w-100" role="group" aria-label="Vertical button group">
+                        <button type="submit" class="btn btn-danger mt-4">
+                        {% block form_main_button_title %}
+                        Título del boton de acción principal
+                        {% endblock form_main_button_title %}
+                        </button>
+                        {% block form_secondary_buttom %}
+                        {% endblock form_secondary_buttom %}
+                    </div>
+                </form>
+            </div>
+            {% endblock form_global %}
+            <div class="text-center mt-3">
+            {% block aditional_info %}
+            {% endblock aditional_info %}
+            </div>
+        </main>
+        {% endblock main_section %}
+        {# Footer #}
+        <footer class="text-center container-sm py-3">
+            <p class="lead text-secondary"><small>Córdoba, Argentina | Todos los derechos reservados 2024</small></p>
+        </footer>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script>
+            function addFormClasses() {
+                const campos = document.querySelectorAll("input, select, label, span, textarea");
+                for (const campo of campos) {
+                switch (campo.tagName.toLowerCase()) {
+                    case "input":
+                    campo.classList.add("form-control");
+                    break;
+                    case "textarea":
+                    campo.classList.add("form-control");
+                    break;
+                    case "select":
+                    campo.classList.add("form-select");
+                    break;
+                    case "label":
+                    campo.classList.add("form-label");
+                    break;
+                    case "span":
+                    campo.classList.add("form-text");
+                    break;
+                }
+                }
+            }
+            
+            document.addEventListener("DOMContentLoaded", addFormClasses);
+        </script>
+        {% block aditional_scripts %}
+        {% endblock aditional_scripts %}
+    </body>
+</html>

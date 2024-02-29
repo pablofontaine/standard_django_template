@@ -1,0 +1,30 @@
+{% extends "base_forms_template.html" %}
+
+{% block title %}
+Registrarse
+{% endblock title %}
+
+{% block form_icon %}
+<i class="bi bi-person-add text-danger"></i>
+{% endblock form_icon %}
+
+{% block form_title %}
+Crear cuenta nueva
+{% endblock form_title %}
+
+{% block form_subtitle %}
+Completa el siguiente formulario
+{% endblock form_subtitle %}
+
+{% block form_main_button_title %}
+Crear nueva cuenta
+{% endblock form_main_button_title %}
+
+{% block form_secondary_buttom %}
+{% endblock form_secondary_buttom %}
+
+{% block aditional_info %}
+<div class="text-center mt-3">
+    <p class="m-0 text-secondary">Si ya tienes cuenta, <a class="link-primary" href="{% url "home:login" %}" role="button">inicia sesión</a></p>
+</div>
+{% endblock aditional_info %}

@@ -1,0 +1,44 @@
+<style>
+    .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        color: rgba(255, 255, 255, .75);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-scroller .nav-link {
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        font-size: .875rem;
+        color: #f8f9fa;
+    }
+
+    .nav-scroller .nav-link:hover {
+        color: #dc3545;
+    }
+
+    .nav-scroller .active {
+        font-weight: 500;
+}
+</style>
+
+<div class="nav-scroller bg-dark shadow-sm">
+    <nav class="nav justify-content-center" aria-label="Secondary navigation">
+            <a href="#" class="nav-link">Ejemplo 1</a>
+            <a href="#" class="nav-link">Ejemplo 2</a>
+            <a href="#" class="nav-link">Ejemplo 3</a>
+            <a href="#" class="nav-link">Ejemplo 4</a>
+    </nav>
+</div>
